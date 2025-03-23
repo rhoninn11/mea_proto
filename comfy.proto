@@ -2,8 +2,6 @@
 syntax = "proto3";
 package comfy;
 
-
-
 enum ImgType {
   NONE = 0;
   MONO = 1;
@@ -21,8 +19,8 @@ enum InpaintType {
 message Empty {}
 
 message Position {
-  int32 x_pos = 1;
-  int32 y_pos = 2;
+  unt32 x_pos = 1;
+  unt32 y_pos = 2;
 }
 
 message PatchPixels {
@@ -30,8 +28,8 @@ message PatchPixels {
 }
 
 message ImgInfo {
-  int32 width = 1;
-  int32 height = 2;
+  unt32 width = 1;
+  unt32 height = 2;
   ImgType img_type = 3;
 }
 
@@ -48,13 +46,19 @@ message InpaintData {
 message Options {
   repeated string prompts = 1;
   float img_power = 2;
-  int32 seed = 3;
+  unt32 seed = 3;
   InpaintType inpt_flag = 4;
+}
+
+enum Slot {
+  Slot_A,
+  Slot_B,
+  Slot_C,
 }
 
 
 service Comfy {
-  rpc SetImage(Image) returns (Empty) {}
+  rpc SetImage(Image, Slot) returns (Empty) {}
   rpc SetMask(Image) returns (Empty) {}
   rpc SetOptions(Options) returns (Empty) {}
   rpc SetCrop(Image) returns (Empty) {}
@@ -64,3 +68,6 @@ service Comfy {
   rpc Txt2Img(Empty) returns (Image) {}
   rpc Ipnet(Empty) returns (Image) {}
 }
+
+// 4 setters
+// 
