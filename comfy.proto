@@ -1,6 +1,7 @@
 
 syntax = "proto3";
 package comfy;
+option go_package = "pcss.pl/comfy";
 
 enum ImgType {
   NONE = 0;
@@ -19,8 +20,8 @@ enum InpaintType {
 message Empty {}
 
 message Position {
-  unt32 x_pos = 1;
-  unt32 y_pos = 2;
+  uint32 x_pos = 1;
+  uint32 y_pos = 2;
 }
 
 message PatchPixels {
@@ -28,8 +29,8 @@ message PatchPixels {
 }
 
 message ImgInfo {
-  unt32 width = 1;
-  unt32 height = 2;
+  uint32 width = 1;
+  uint32 height = 2;
   ImgType img_type = 3;
 }
 
@@ -46,19 +47,23 @@ message InpaintData {
 message Options {
   repeated string prompts = 1;
   float img_power = 2;
-  unt32 seed = 3;
+  uint32 seed = 3;
   InpaintType inpt_flag = 4;
 }
 
 enum Slot {
-  Slot_A,
-  Slot_B,
-  Slot_C,
+  Slot_A = 0;
+  Slot_B = 1;
+  Slot_C = 2;
 }
 
+message SetImageData {
+  Slot slot = 1;
+  Image image = 2;
+}
 
 service Comfy {
-  rpc SetImage(Image, Slot) returns (Empty) {}
+  rpc SetImage(SetImageData) returns (Empty) {}
   rpc SetMask(Image) returns (Empty) {}
   rpc SetOptions(Options) returns (Empty) {}
   rpc SetCrop(Image) returns (Empty) {}
