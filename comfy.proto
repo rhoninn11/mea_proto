@@ -1,7 +1,7 @@
 
 syntax = "proto3";
-package comfy;
-option go_package = "pcss.pl/comfy";
+package meagen;
+option go_package = "mea.gen.d/";
 
 enum ImgType {
   NONE = 0;
