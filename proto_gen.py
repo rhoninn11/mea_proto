@@ -27,7 +27,7 @@ def proto_gen(in_dir, out_dir):
 def script():
     # relative to root
     IN_DIR="./proto"
-    OUT_DIR="./src/proto"
+    OUT_DIR="./src/mea_gen_d"
     proto_gen(IN_DIR, OUT_DIR)
     print("+++ proto sources regenerated")
 
