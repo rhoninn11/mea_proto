@@ -63,16 +63,16 @@ message SetImageData {
 }
 
 service Comfy {
-  rpc SetImage(SetImageData) returns (Empty) {}
-  rpc SetMask(Image) returns (Empty) {}
-  rpc SetOptions(Options) returns (Empty) {}
-  rpc SetCrop(Image) returns (Empty) {}
-  rpc Inpaint(Empty) returns (Image) {}
-  rpc UberInpaint(Empty) returns (Image) {}
-  rpc Img2Img(Empty) returns (Image) {}
-  rpc Txt2Img(Empty) returns (Image) {}
-  rpc Ipnet(Empty) returns (Image) {}
-  rpc Reboot(Empty) returns (Empty) {}
+  rpc SetImage(SetImageData) returns (Empty);
+  rpc SetMask(Image) returns (Empty);
+  rpc SetOptions(Options) returns (Empty);
+  rpc SetCrop(Image) returns (Empty);
+  rpc Inpaint(Empty) returns (Image);
+  rpc UberInpaint(Empty) returns (Image);
+  rpc Img2Img(Empty) returns (Image);
+  rpc Txt2Img(Empty) returns (Image);
+  rpc Ipnet(Empty) returns (Image);
+  rpc Reboot(Empty) returns (Empty);
 }
 
 // 4 setters
