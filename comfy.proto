@@ -6,7 +6,7 @@ option go_package = "mea.gen.d/";
 enum ImgType {
   NONE = 0;
   MONO = 1;
-  DUO = 2;
+  HDR = 2;
   RGB = 3;
   RGBA = 4;
 }
