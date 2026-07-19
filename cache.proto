@@ -1,0 +1,4 @@
+
+message FontAtlas {
+    bytes hash = 1;
+}
