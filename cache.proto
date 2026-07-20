@@ -1,3 +1,6 @@
+syntax = "proto3";
+package meagen;
+option go_package = "mea.gen.d/";
 
 message FontAtlas {
     bytes hash = 1;
