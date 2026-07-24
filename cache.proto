@@ -2,6 +2,17 @@ syntax = "proto3";
 package meagen;
 option go_package = "mea.gen.d/";
 
-message FontAtlas {
+
+message GlyphSz {
+    bytes value = 1;
+}
+message UVLoc {
+    bytes value = 1;
+}
+message FontCache {
     bytes hash = 1;
+    bytes alphabet = 2;
+    repeated GlyphSz sz_arr = 3;
+    repeated UVLoc uv_arr = 4;
+    bytes tex = 6;
 }
